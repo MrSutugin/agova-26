@@ -1,0 +1,68 @@
+<header class="navbar-light fixed-top header-static bg-mode">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <%= image_tag "logo.png", class: "light-mode-item navbar-brand-item" %>
+        <%= image_tag "logo.png", class: "dark-mode-item navbar-brand-item" %>
+      </a>
+      <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-animation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav navbar-nav-scroll">
+          <li class="nav-item">
+						<a class="nav-link" href="my-profile-connections.html">Акции</a>
+					</li>          
+        </ul>
+      </div>
+      <ul class="nav flex-nowrap align-items-center ms-sm-3 list-unstyled">
+        <li class="nav-item ms-2 dropdown">
+          <a class="nav-link icon-md btn btn-light p-0" href="index.html#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+            <span class="badge-notif animation-blink"></span>
+            <i class="uil uil-user fa-xl"></i>
+          </a>
+          <ul class="dropdown-menu dropdown-animation dropdown-menu-end pt-3 small me-md-n3" aria-labelledby="profileDropdown">
+            <li class="px-3">
+              <div class="d-flex align-items-center position-relative">
+                <div class="avatar me-3">
+                  <img class="avatar-img rounded-circle" src="assets/images/avatar/07.jpg" alt="avatar">
+                </div>
+                <div>
+                  <a class="h6 stretched-link" href="index.html#">Lori Ferguson</a>
+                  <p class="small m-0">Web Developer</p>
+                </div>
+              </div>
+              <a class="dropdown-item btn btn-primary-soft btn-sm my-2 text-center" href="my-profile.html">View profile</a>
+            </li>
+            <li><a class="dropdown-item" href="settings.html"><i class="bi bi-gear fa-fw me-2"></i>Settings & Privacy</a></li>
+            <li>
+              <a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+                <i class="fa-fw bi bi-life-preserver me-2"></i>Support
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="docs/index.html" target="_blank">
+                <i class="fa-fw bi bi-card-text me-2"></i>Documentation
+              </a>
+            </li>
+            <li class="dropdown-divider"></li>
+            <li><a class="dropdown-item bg-danger-soft-hover" href="sign-in-advance.html"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
+            <li> <hr class="dropdown-divider"></li>
+            <li>
+              <div class="modeswitch-wrap" id="darkModeSwitch">
+                <div class="modeswitch-item">
+                  <div class="modeswitch-icon"></div>
+                </div>
+                <span>Темная тема</span>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

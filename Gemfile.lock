@@ -70,6 +70,9 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    after_commit_everywhere (1.2.2)
+      activerecord (>= 4.2)
+      activesupport
     amazing_print (1.4.0)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
@@ -217,6 +220,21 @@ GEM
     redis (4.7.1)
     regexp_parser (2.5.0)
     rexml (3.2.5)
+    roda (3.58.0)
+      rack
+    rodauth (2.25.0)
+      roda (>= 2.6.0)
+      sequel (>= 4)
+    rodauth-model (0.2.0)
+      rodauth (~> 2.0)
+    rodauth-rails (1.5.4)
+      bcrypt
+      railties (>= 4.2, < 8)
+      roda (~> 3.55)
+      rodauth (~> 2.25)
+      rodauth-model (~> 0.2)
+      sequel-activerecord_connection (~> 1.1)
+      tilt
     rubocop (1.33.0)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -245,6 +263,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sequel (5.58.0)
+    sequel-activerecord_connection (1.2.9)
+      activerecord (>= 4.2, < 8)
+      after_commit_everywhere (~> 1.1)
+      sequel (~> 5.38)
     shoulda-context (2.0.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
@@ -258,6 +281,7 @@ GEM
     strscan (3.0.4)
     syntax_suggest (0.0.1)
     thor (1.2.1)
+    tilt (2.0.11)
     timeout (0.3.0)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
@@ -316,6 +340,7 @@ DEPENDENCIES
   rack-canonical-host
   rails (~> 7.0.3)
   redis (~> 4.0)
+  rodauth-rails (~> 1.0)
   rubocop
   rubocop-minitest
   rubocop-performance
