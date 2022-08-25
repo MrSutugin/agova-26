@@ -1,0 +1,20 @@
+<% provide(:title, @page_title) %>
+<main class="page-wrapper">
+  <!-- Page content-->
+  <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5">
+    <div class="card card-body" style="max-width: 940px">
+      <div class="row mx-0 align-items-center">
+        <div class="col-md-6 border-end-md p-2 p-sm-5">
+          <h2 class="h3 mb-4 mb-sm-5">
+            <%= @page_title %>
+          </h2>
+          <%= image_tag 'auth.svg', class: "d-block mx-auto", width: "344" %>
+        </div>
+        <div class="col-md-6 px-2 pt-2 pb-4 px-sm-5 pb-sm-5 pt-md-5">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<% parent_layout "base" %>

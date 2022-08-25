@@ -4,7 +4,8 @@
 #
 #  id         :bigint           not null, primary key
 #  bio        :string
-#  name       :string
+#  firstname  :string
+#  lastname   :string
 #  username   :string
 #  website    :string
 #  created_at :datetime         not null

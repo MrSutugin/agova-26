@@ -1,8 +1,6 @@
-
 <%= render("shared/header/navbar") %>
-<main class="container">
+<main class="page-wrapper">
   <%= render("shared/flash") %>
   <%= yield %>
 </main>
-
 <% parent_layout "base" %>
