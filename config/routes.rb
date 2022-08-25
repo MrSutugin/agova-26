@@ -3,6 +3,5 @@ Rails.application.routes.draw do
   get  "about", to: "pages#about"
   get  "contacts", to: "pages#contacts"
   get  "privacy_policy", to: "pages#privacy_policy"
-  resources :profiles
   mount Sidekiq::Web => "/sidekiq" if defined?(Sidekiq)
 end

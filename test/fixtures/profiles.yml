@@ -22,15 +22,13 @@
 #
 
 one:
-  username: MyString
-  name: MyString
-  website: MyString
-  bio: MyString
+  firstname: MyString
+  lastname: MyString
+  bio: MyText
   account: one
 
 two:
-  username: MyString
-  name: MyString
-  website: MyString
-  bio: MyString
+  firstname: MyString
+  lastname: MyString
+  bio: MyText
   account: two

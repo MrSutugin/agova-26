@@ -1,7 +1,7 @@
 <!-- Navbar-->
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
   <div class="container px-3">
-    <%= link_to root_path, class: "navbar-brand me-3 me-xl-4" do %>
+    <%= link_to root_path, class: "navbar-brand me-3 me-xl-4", data: {turbo: "false"} do %>
       <%= image_tag 'logo.png', class: "d-block" %>
     <% end %>
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,13 +9,14 @@
     </button>
     <% if rodauth.logged_in? %>
       <div class="order-lg-3 my-n2">
-        <%= link_to edit_profile_path(current_account.profile), class: "d-block py-2"  do %>
-          <%= image_tag 'noavatar.png', class: "rounded-circle border", width: "40" %>
+        <%= link_to root_path, class: "btn btn-sm btn-outline-secondary px-2 py-1 d-flex align-items-center", data: {turbo: "false"}  do %>
+          <i class="uil uil-bell me-2 fa-lg"></i>
+          <%= image_tag 'noavatar.png', class: "rounded-circle border", width: "30" %>
         <% end %>
       </div>
     <% else %>
       <div class="order-lg-3 my-n2">
-        <%= link_to rodauth.login_path, class: "btn btn-sm btn-outline-secondary px-2 py-1 d-flex align-items-center" do %>
+        <%= link_to rodauth.login_path, class: "btn btn-sm btn-outline-secondary px-2 py-1 d-flex align-items-center", data: {turbo: "false"}  do %>
           <i class="uil uil-signin me-2 fa-lg"></i>
           <%= image_tag 'noavatar.png', class: "rounded-circle border", width: "30" %>
         <% end %>

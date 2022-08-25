@@ -1,4 +1,4 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "Главная") %>
 <!-- Page container-->
 <div class="container-fluid mt-5 pt-5 p-0">
   <div class="row g-0 mt-n3">
@@ -6,7 +6,7 @@
     <aside class="col-lg-4 col-xl-3 border-top-lg border-end-lg px-3 rounded-end">
       <div class="offcanvas offcanvas-start offcanvas-collapse" id="filters-sidebar">
         <div class="offcanvas-header d-flex d-lg-none align-items-center">
-          <h2 class="h5 mb-0">Filters</h2>
+          <h2 class="h5 mb-0">Поиск</h2>
           <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body py-lg-4">
@@ -146,14 +146,14 @@
                 <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
               </div>
               <div class="tns-carousel-inner">
-              <img src="https://picsum.photos/300/300" alt="Image">
-              <img src="https://picsum.photos/400/400" alt="Image">
+                <img src="https://picsum.photos/300/300" alt="Image">
+                <img src="https://picsum.photos/400/400" alt="Image">
               </div>
             </div>
             <div class="card-body position-relative pb-3">
               <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For rent</h4>
               <h3 class="h6 mb-2 fs-base">
-              <a class="nav-link stretched-link" href="real-estate-single-v1.html">3-bed Apartment | 67 sq.m</a>
+                <a class="nav-link stretched-link" href="real-estate-single-v1.html">3-bed Apartment | 67 sq.m</a>
               </h3>
               <p class="mb-2 fs-sm text-muted">3811 Ditmars Blvd Astoria, NY 11105</p>
               <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>₽ 1,650</div>
@@ -174,9 +174,7 @@
             </div>
           </div>
         </div>
-        
       </div>
-      
       <!-- Pagination-->
       <nav class="border-top pb-md-4 pt-4 mt-2" aria-label="Pagination">
         <ul class="pagination mb-1">
@@ -192,3 +190,8 @@
     </div>
   </div>
 </div>
+<!-- Sidebar toggle button (mobile)-->
+<button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar">
+  <i class="fi-filter me-2"></i>
+  Поиск
+</button>
