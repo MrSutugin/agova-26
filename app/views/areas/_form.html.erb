@@ -1,0 +1,25 @@
+<%= form_with(model: area) do |form| %>
+  <div class="mb-4">
+    <%= form.label :brand_id, "Товарищество", class: "form-label" %>
+    <%= form.collection_select :brand_id, @brands, :id, :name, {:include_blank => true}, {class: "form-control"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :name, "Название", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :description, "Описание", class: "form-label" %>
+    <%= form.text_area :description, rows: "6", class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :square, "Площадь", class: "form-label" %>
+    <%= form.text_field :square, class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :number, "Номер", class: "form-label" %>
+    <%= form.text_field :number, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,110 @@
+<aside class="col-lg-4 col-xl-3 border px-3 rounded mb-4">
+  <div class="d-flex d-md-block d-lg-flex align-items-start align-items-center py-4">
+    <%= link_to dashboard_path, data: {turbo: "false"}  do %>
+      <%= image_tag 'noavatar.png', class: "rounded-circle border", width: "68" %>
+    <% end %>
+    <div class="pt-md-2 pt-lg-0 ps-3 ps-md-0 ps-lg-3">
+      <h3 class="h6 mb-0">
+        <%= current_profile.firstname %>
+        <%= current_profile.lastname %>
+      </h3>
+      <span class="star-rating">
+        <i class="star-rating-icon fi-star-filled active"></i>
+        <i class="star-rating-icon fi-star-filled active"></i>
+        <i class="star-rating-icon fi-star-filled active"></i>
+        <i class="star-rating-icon fi-star-filled active"></i>
+        <i class="star-rating-icon fi-star-filled "></i>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-secondary w-100 mb-4 px-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+        <i class="uil uil-compass fa-lg"></i>
+      </button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-secondary w-100 mb-4 px-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+        <i class="uil uil-telegram-alt fa-lg"></i>
+      </button>
+    </div>
+    <div class="col-3">
+      <button type="button" class="btn btn-outline-secondary w-100 mb-4 px-0" data-bs-toggle="modal" data-bs-target="#settingsModal">
+        <i class="uil uil-edit fa-lg"></i>
+      </button>
+    </div>
+    <div class="col-3">
+      <%= link_to rodauth.logout_path, data: { turbo_method: :post }, class: "btn btn-outline-secondary w-100 mb-4 px-0"  do %>
+        <i class="uil uil-signout fa-lg"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="h6 modal-title" id="settingsModalLabel">Редактировать</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <%= form_for :profile, url: profiles_edit_url, action: :update, method: :post do |form| %>
+          <div class="modal-body">
+            <div class="mb-4">
+              <%= form.label :firstname, "Имя", class: "form-label" %>
+              <%= form.text_field :firstname, class: "form-control" %>
+            </div>
+            <div class="mb-4">
+              <%= form.label :lastname, "Фамилия", class: "form-label" %>
+              <%= form.text_field :lastname, class: "form-control" %>
+            </div>
+            <div class="mb-4">
+              <%= form.label :bio, "О себе", class: "form-label" %>
+              <%= form.text_area :bio, rows:"6", class: "form-control" %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            <%= form.submit "Сохранить", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas offcanvas-start offcanvas-collapse" id="filters-sidebar">
+    <div class="offcanvas-header d-flex d-lg-none align-items-center">
+      <h3 class="h6 mb-0">Меню</h3>
+      <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-4">
+        <h3 class="h6 fs-base">Товарищества и участки</h3>
+        <div class="card-nav">
+          <%= link_to  dashboard_brand_path, class: current_class?(dashboard_brand_path), data: {turbo: "false"} do %>
+            <i class="uil uil-trees fa-lg me-2"></i>
+            <strong class="fs-sm ">Мои товарищества</strong>
+          <% end %>
+          <%= link_to  dashboard_area_path, class: current_class?(dashboard_area_path), data: {turbo: "false"} do %>
+            <i class="uil uil-house-user fa-lg me-2"></i>
+            <strong class="fs-sm ">Мои участки</strong>
+          <% end %>
+        </div>
+      </div>
+      <div class="pb-4 mb-2">
+        <h3 class="h6 fs-base">Вход и безопасность</h3>
+        <div class="card-nav">
+          <%= link_to  rodauth.change_password_path, class: current_class?(rodauth.change_password_path), data: {turbo: "false"} do %>
+            <i class="uil uil-unlock-alt fa-lg me-2"></i>
+            <strong class="fs-sm ">Изменить пароль</strong>
+          <% end %>
+          <%= link_to  rodauth.change_login_path, class: current_class?(rodauth.change_login_path), data: {turbo: "false"} do %>
+            <i class="uil uil-envelope-redo fa-lg me-2"></i>
+            <strong class="fs-sm ">Изменить email</strong>
+          <% end %>
+          <%= link_to  rodauth.close_account_path, class: current_class?(rodauth.close_account_path), data: {turbo: "false"} do %>
+            <i class="uil uil-trash-alt fa-lg me-2"></i>
+            <strong class="fs-sm ">Удалить аккаунт</strong>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

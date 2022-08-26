@@ -1,9 +1,14 @@
 <%# Notice %>
 <% if flash[:notice].present? %>
-  <div class="alert alert-success"><%= flash[:notice] %></div>
+  <div class="alert alert-success alert-dismissible fade show position-absolute flash end-0"  data-controller="notification" data-notification-delay-value="3000" role="alert">
+    <%= flash[:notice] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" data-action="notification#hide" aria-label="Close"></button>
+  </div>
 <% end %>
-
 <%# Alert %>
 <% if flash[:alert].present? %>
-  <div class="alert alert-danger"><%= flash[:alert] %></div>
+  <div class="alert alert-danger alert-dismissible fade show position-absolute flash end-0"  data-controller="notification" data-notification-delay-value="3000" role="alert">
+    <%= flash[:alert] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" data-action="notification#hide" aria-label="Close"></button>
+  </div>
 <% end %>

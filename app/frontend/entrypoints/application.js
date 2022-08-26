@@ -1,8 +1,6 @@
 import "~/controllers";
 import "~/stylesheets/index.scss";
 import "@hotwired/turbo-rails";
-
-
 // To see this message, add the following to the `<head>` section in your
 // views/layouts/application.html.erb
 //

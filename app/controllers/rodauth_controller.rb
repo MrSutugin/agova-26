@@ -13,7 +13,7 @@ class RodauthController < ApplicationController
          rodauth.reset_password_request_path
       "authentication"
     else
-      "dashboard"
+      "application"
     end
   end
 end

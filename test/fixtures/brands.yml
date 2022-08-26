@@ -1,0 +1,55 @@
+# == Schema Information
+#
+# Table name: brands
+#
+#  id          :bigint           not null, primary key
+#  address     :string
+#  description :text
+#  email       :string
+#  geo_lat     :string
+#  geo_lon     :string
+#  inn         :string
+#  name        :string
+#  ogrn        :string
+#  phone       :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  account_id  :bigint           not null
+#  region_id   :bigint           not null
+#
+# Indexes
+#
+#  index_brands_on_account_id  (account_id)
+#  index_brands_on_region_id   (region_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (account_id => accounts.id)
+#  fk_rails_...  (region_id => regions.id)
+#
+
+one:
+  name: MyString
+  description: MyString
+  phone: MyString
+  email: MyString
+  inn: MyString
+  ogrn: MyString
+  region: one
+  address: MyString
+  geo_lat: MyString
+  geo_lon: MyString
+  account: one
+
+two:
+  name: MyString
+  description: MyString
+  phone: MyString
+  email: MyString
+  inn: MyString
+  ogrn: MyString
+  region: two
+  address: MyString
+  geo_lat: MyString
+  geo_lon: MyString
+  account: two

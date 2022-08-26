@@ -9,7 +9,7 @@
     </button>
     <% if rodauth.logged_in? %>
       <div class="order-lg-3 my-n2">
-        <%= link_to root_path, class: "btn btn-sm btn-outline-secondary px-2 py-1 d-flex align-items-center", data: {turbo: "false"}  do %>
+        <%= link_to dashboard_path, class: "btn btn-sm btn-outline-secondary px-2 py-1 d-flex align-items-center", data: {turbo: "false"}  do %>
           <i class="uil uil-bell me-2 fa-lg"></i>
           <%= image_tag 'noavatar.png', class: "rounded-circle border", width: "30" %>
         <% end %>
@@ -24,6 +24,12 @@
     <% end %>
     <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
       <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
+        <li class="nav-item"><%= link_to "Миссия", mission_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Рейтинг", brands_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Тарифы", tariffs_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Услуги", services_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Журнал", magazine_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Маркет", gigs_path, class: "nav-link" %></li>
       </ul>
     </div>
   </div>

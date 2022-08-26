@@ -1,0 +1,32 @@
+<% provide(:title, "Новая публикация") %>
+<div class="container mt-5 pt-5">
+  <div class="row g-0 mt-n3">
+    <%= render 'profiles/aside' %>
+    <!-- Page content-->
+    <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 px-3">
+      <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch">
+        <div class="d-flex align-items-center flex-shrink-0">
+          <%= link_to dashboard_path, class: "btn btn-outline-secondary" do %>
+            <i class="uil uil-arrow-left fa-lg me-2"></i>
+            Назад
+          <% end %>
+        </div>
+        <hr class="d-none d-sm-block w-100 mx-4">
+        <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted">
+          <i class="uil uil-exclamation-circle fa-lg me-2"></i>
+          <span class="fs-sm ">Внимание</span>
+        </div>
+      </div>
+      <!-- Catalog grid-->
+      <div class="row g-4 py-4">
+        <!-- Item-->
+        <div class="col-12">
+          <%= render "form", gig: @gig %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar">
+  Меню
+</button>

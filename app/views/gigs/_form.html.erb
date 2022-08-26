@@ -1,0 +1,25 @@
+<%= form_with(model: gig) do |form| %>
+  <div class="mb-4">
+    <%= form.label :region_id, "Регион", class: "form-label" %>
+    <%= form.collection_select :region_id, @regions, :id, :name, {:include_blank => true}, {class: "form-control"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :category_id, "Категория", class: "form-label" %>
+    <%= form.collection_select :category_id, @categories, :id, :name, {:include_blank => true}, {class: "form-control"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :name, "Название", class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :description, "Описание", class: "form-label" %>
+    <%= form.text_area :description, rows: "6", class: "form-control" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :price, "Цена", class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

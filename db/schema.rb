@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_06_183851) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_26_143504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
@@ -73,6 +73,60 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_06_183851) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "areas", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "square"
+    t.string "number"
+    t.bigint "brand_id", null: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_areas_on_account_id"
+    t.index ["brand_id"], name: "index_areas_on_brand_id"
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "phone"
+    t.string "email"
+    t.string "inn"
+    t.string "ogrn"
+    t.string "address"
+    t.string "geo_lat"
+    t.string "geo_lon"
+    t.bigint "region_id", null: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_brands_on_account_id"
+    t.index ["region_id"], name: "index_brands_on_region_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "gigs", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.bigint "category_id", null: false
+    t.bigint "region_id", null: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_gigs_on_account_id"
+    t.index ["category_id"], name: "index_gigs_on_category_id"
+    t.index ["region_id"], name: "index_gigs_on_region_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "username"
     t.string "firstname"
@@ -85,11 +139,48 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_06_183851) do
     t.index ["account_id"], name: "index_profiles_on_account_id"
   end
 
+  create_table "regions", force: :cascade do |t|
+    t.string "name"
+    t.string "r_type"
+    t.string "name_with_type"
+    t.string "federal_district"
+    t.string "kladr_id"
+    t.string "fias_id"
+    t.string "okato"
+    t.string "oktmo"
+    t.string "tax_office"
+    t.string "postal_code"
+    t.string "iso_code"
+    t.string "timezone"
+    t.string "geoname_code"
+    t.string "geoname_id"
+    t.string "geoname_name"
+    t.string "geo_lat"
+    t.string "geo_lon"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tariffs", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "account_login_change_keys", "accounts", column: "id"
   add_foreign_key "account_password_reset_keys", "accounts", column: "id"
   add_foreign_key "account_remember_keys", "accounts", column: "id"
   add_foreign_key "account_verification_keys", "accounts", column: "id"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "areas", "accounts"
+  add_foreign_key "areas", "brands"
+  add_foreign_key "brands", "accounts"
+  add_foreign_key "brands", "regions"
+  add_foreign_key "gigs", "accounts"
+  add_foreign_key "gigs", "categories"
+  add_foreign_key "gigs", "regions"
   add_foreign_key "profiles", "accounts"
 end

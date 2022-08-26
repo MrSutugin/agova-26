@@ -1,4 +1,4 @@
-# HA_HO
+# PAVEL SUTUGIN
 
 This is a Rails 7 app.
 

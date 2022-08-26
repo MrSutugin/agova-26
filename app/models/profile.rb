@@ -22,4 +22,7 @@
 #
 class Profile < ApplicationRecord
   belongs_to :account
+
+  validates :firstname, presence: true
+  validates :lastname, presence: true
 end

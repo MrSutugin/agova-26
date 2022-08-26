@@ -1,0 +1,76 @@
+<% provide(:title, "Поиск по публикациям") %>
+<!-- Page container-->
+<div class="container mt-5 pt-5">
+  <div class="row g-0 mt-n3">
+    <!-- Filters sidebar (Offcanvas on mobile)-->
+    <aside class="col-lg-4 col-xl-3 border px-3 rounded mb-4">
+      <div class="offcanvas offcanvas-start offcanvas-collapse" id="filters-sidebar">
+        <%= search_form_for @q do |form| %>
+          <div class="offcanvas-header d-flex d-lg-none align-items-center">
+            <h2 class="h5 mb-0">Поиск</h2>
+            <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
+          </div>
+          <div class="offcanvas-body py-lg-4">
+            <div class="pb-4 mb-2">
+              <h3 class="h6">Регион</h3>
+              <%= form.collection_select :region_id_eq, @regions, :id, :name, {:include_blank => true}, {class: "form-control"} %>
+            </div>
+            <div class="pb-4 mb-2">
+              <h3 class="h6">Категория</h3>
+              <%= form.collection_select :category_id_eq, @categories, :id, :name, {:include_blank => true}, {class: "form-control"} %>
+            </div>
+            <div class="border-top py-4">
+              <%= form.submit "Найти", class: "btn btn-outline-primary w-100" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </aside>
+    <!-- Page content-->
+    <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 px-3">
+      <!-- Map popup-->
+      <div class="map-popup invisible" id="map">
+        <button class="btn btn-icon btn-light btn-sm shadow-sm rounded-circle" type="button" data-bs-toggle-class="invisible" data-bs-target="#map"><i class="fi-x fs-xs"></i></button>
+        <div class="interactive-map" data-map-options-json="json/map-options-real-estate-rent.json"></div>
+      </div>
+      <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch">
+        <div class="d-flex align-items-center flex-shrink-0">
+          <a class="btn btn-outline-secondary" href="real-estate-catalog-rent.html#" data-bs-toggle-class="invisible" data-bs-target="#map">
+            <i class="fi-map me-2"></i>
+            На карте
+          </a>
+        </div>
+        <hr class="d-none d-sm-block w-100 mx-4">
+        <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted">
+          <i class="fi-check-circle me-2"></i>
+          <span class="fs-sm ">Более 1000 вариантов</span>
+        </div>
+      </div>
+      <!-- Catalog grid-->
+      <div class="row g-4 py-4" id="gigs">
+        <!-- Item-->
+        <% @gigs.each do |gig| %>
+          <%= render gig %>
+        <% end %>
+      </div>
+      <!-- Pagination-->
+      <nav class="border-top pb-md-4 pt-4 mt-2" aria-label="Pagination">
+        <ul class="pagination mb-1">
+          <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
+          <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span></li>
+          <li class="page-item d-none d-sm-block"><a class="page-link" href="real-estate-catalog-rent.html#">2</a></li>
+          <li class="page-item d-none d-sm-block"><a class="page-link" href="real-estate-catalog-rent.html#">3</a></li>
+          <li class="page-item d-none d-sm-block">...</li>
+          <li class="page-item d-none d-sm-block"><a class="page-link" href="real-estate-catalog-rent.html#">8</a></li>
+          <li class="page-item"><a class="page-link" href="real-estate-catalog-rent.html#" aria-label="Next"><i class="fi-chevron-right"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Sidebar toggle button (mobile)-->
+<button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar">
+  <i class="fi-filter me-2"></i>
+  Поиск
+</button>
+

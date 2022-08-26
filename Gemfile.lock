@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 4ffc714029c1fe22eb0cf091295afa26cb5fa70c
+  branch: master
+  specs:
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,6 +82,8 @@ GEM
       activerecord (>= 4.2)
       activesupport
     amazing_print (1.4.0)
+    ancestry (4.1.0)
+      activerecord (>= 5.2.6)
     annotate (3.2.0)
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
@@ -214,6 +224,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (3.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.0)
     regexp_parser (2.5.0)
     rexml (3.2.5)
@@ -318,6 +332,7 @@ PLATFORMS
 DEPENDENCIES
   active_type
   amazing_print
+  ancestry
   annotate
   bcrypt
   bootsnap
@@ -327,6 +342,7 @@ DEPENDENCIES
   capybara
   dotenv-rails
   erb_lint
+  faker!
   launchy
   letter_opener
   minitest-ci
@@ -336,6 +352,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-canonical-host
   rails (~> 7.0.3)
+  ransack
   redis (~> 4.0)
   rodauth-rails (~> 1.0)
   rubocop

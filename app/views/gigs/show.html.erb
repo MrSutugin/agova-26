@@ -1,0 +1,89 @@
+<% provide(:title, "") %>
+<div class="container mt-5 pt-5">
+  <div class="row g-0 mt-n3">
+    <%= render 'profiles/aside_public', :model => @gig %>
+    <!-- Page content-->
+    <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 px-3">
+      <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch">
+        <div class="d-flex align-items-center flex-shrink-0">
+          <%= link_to :back, class: "btn btn-outline-secondary" do %>
+            <i class="uil uil-arrow-left fa-lg me-2"></i>
+            Назад
+          <% end %>
+        </div>
+        <hr class="d-none d-sm-block w-100 mx-4">
+        <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted">
+          <i class="uil uil-exclamation-circle fa-lg me-2"></i>
+          <span class="fs-sm ">Внимание</span>
+        </div>
+      </div>
+      <!-- Catalog grid-->
+      <div class="row g-4 py-4">
+        <div class="col-lg-8">
+          <div class="d-flex flex-column">
+            <!-- Carousel with slides count-->
+            <div class="order-lg-1 order-2">
+              <div class="tns-carousel-wrapper">
+                <div class="tns-slides-count text-light">
+                  <i class="fi-image fs-lg me-2"></i>
+                  <div class="ps-1">
+                    <span class="tns-current-slide fs-5 fw-bold"></span>
+                    <span class="fs-5 fw-bold">/</span>
+                    <span class="tns-total-slides fs-5 fw-bold"></span>
+                  </div>
+                </div>
+                <div class="tns-carousel-inner" data-carousel-options="{&quot;navAsThumbnails&quot;: true, &quot;navContainer&quot;: &quot;#thumbnails&quot;, &quot;gutter&quot;: 12, &quot;responsive&quot;: {&quot;0&quot;:{&quot;controls&quot;: false},&quot;500&quot;:{&quot;controls&quot;: true}}}">
+                  <div><img src="<%= image_url('nophotos.png') %>" class="rounded-3" alt="Image"></div>
+                  <div><img src="<%= image_url('nophotos.png') %>" class="rounded-3" alt="Image"></div>
+                  <div><img src="<%= image_url('nophotos.png') %>" class="rounded-3" alt="Image"></div>
+                  <div><img src="<%= image_url('nophotos.png') %>" class="rounded-3" alt="Image"></div>
+                  <div><img src="<%= image_url('nophotos.png') %>" class="rounded-3" alt="Image"></div>
+                </div>
+              </div>
+              <!-- Thumbnails nav-->
+              <ul class="tns-thumbnails mb-4" id="thumbnails">
+                <li class="tns-thumbnail"><img src="<%= image_url('nophotos.png') %>" class="tns-thumbnail" alt="Image"></li>
+                <li class="tns-thumbnail"><img src="<%= image_url('nophotos.png') %>" class="tns-thumbnail" alt="Image"></li>
+                <li class="tns-thumbnail"><img src="<%= image_url('nophotos.png') %>" class="tns-thumbnail" alt="Image"></li>
+                <li class="tns-thumbnail"><img src="<%= image_url('nophotos.png') %>" class="tns-thumbnail" alt="Image"></li>
+                <li class="tns-thumbnail"><img src="<%= image_url('nophotos.png') %>" class="tns-thumbnail" alt="Image"></li>
+              </ul>
+            </div>
+            <!-- Page title + Features-->
+            <div class="order-2">
+              <h1 class="h6 mb-4"> <%= @gig.name %> </h1>
+              <p class="mb-4 d-flex align-items-center pb-1">
+                <%= image_tag 'russia.svg', class: "me-2", width: "25"  %>
+                <%= @gig.region.name_with_type  %>
+              </p>
+              <ul class="d-flex mb-4 pb-lg-2 list-unstyled">
+                <li class="me-3 pe-3 border-end"><b class="me-1">4</b><i class="fi-bed mt-n1 lead align-middle text-muted"></i></li>
+                <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-bath mt-n1 lead align-middle text-muted"></i></li>
+                <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-car mt-n1 lead align-middle text-muted"></i></li>
+                <li><b>56 </b>sq.m</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mb-4 pb-2">
+            <%= @gig.description  %>
+          </p>
+        </div>
+        <!-- Sidebar with details-->
+        <aside class="col-lg-4">
+          <!-- Property details-->
+          <div class="card border-0 bg-secondary mb-4">
+            <div class="card-body">
+              <h4 class="h6 mb-0">
+                <i class="fi-cash mt-n1 fa-lg me-2 lead align-middle opacity-70"></i>
+                ₽ <%= @gig.price %>
+              </h4>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar">
+  Отправить запрос
+</button>

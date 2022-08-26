@@ -1,5 +1,36 @@
-<%= form_with url: rodauth.verify_login_change_path, method: :post, data: { turbo: false } do |form| %>
-  <div class="form-group mb-3">
-    <%= form.submit rodauth.verify_login_change_button, class: "btn btn-primary" %>
+<% provide(:title, "Подтверждение смены email") %>
+<div class="container mt-5 pt-5">
+  <div class="row g-0 mt-n3">
+    <%= render 'profiles/aside' %>
+    <!-- Page content-->
+    <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 px-3">
+      <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch">
+        <div class="d-flex align-items-center flex-shrink-0">
+          <%= link_to dashboard_path, class: "btn btn-outline-secondary" do %>
+            <i class="uil uil-arrow-left fa-lg me-2"></i>
+            Назад
+          <% end %>
+        </div>
+        <hr class="d-none d-sm-block w-100 mx-4">
+        <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted">
+          <i class="uil uil-exclamation-circle fa-lg me-2"></i>
+          <span class="fs-sm ">Внимание</span>
+        </div>
+      </div>
+      <!-- Catalog grid-->
+      <div class="row g-4 py-4">
+        <!-- Item-->
+        <div class="col-12">
+          <%= form_with url: rodauth.verify_login_change_path, method: :post, data: { turbo: false } do |form| %>
+            <div class="mb-4">
+              <%= form.submit rodauth.verify_login_change_button, class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
+<button class="btn btn-primary btn-sm w-100 rounded-0 fixed-bottom d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filters-sidebar">
+  Меню
+</button>

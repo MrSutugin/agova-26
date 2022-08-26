@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.1.2"
 
 gem "active_type"
+gem "ancestry"
 gem "bcrypt"
 gem "bootsnap", require: false
 gem "pg", "~> 1.1"
@@ -28,6 +29,7 @@ group :development do
   gem "bundler-audit", require: false
   gem "erb_lint", require: false
   gem "letter_opener"
+  gem "ransack"
   gem "rubocop", require: false
   gem "rubocop-minitest", require: false
   gem "rubocop-performance", require: false
@@ -38,6 +40,7 @@ end
 group :development, :test do
   gem "byebug"
   gem "dotenv-rails"
+  gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
   gem "launchy"
   gem "syntax_suggest"
 end

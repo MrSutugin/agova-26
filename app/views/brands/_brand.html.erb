@@ -1,0 +1,51 @@
+<div class="col-sm-6 col-xl-4" id="<%= dom_id brand %>">
+  <div class="card card-hover border-0 border-top border-start border-end border-bottom h-100">
+    <div class="tns-carousel-wrapper card-img-top card-img-hover">
+      <a class="img-overlay" href="<%= brand_url(brand) %>"></a>
+      <div class="content-overlay end-0 top-0 pt-3 pe-3">
+        <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="В избранное">
+          <i class="uil uil-heart"></i>
+        </button>
+      </div>
+      <div class="tns-carousel-inner">
+        <img src="<%= image_url('nophotos.png') %>" width="500" height="500" alt="Image">
+        <img src="<%= image_url('nophotos.png') %>" width="500" height="500"  alt="Image">
+      </div>
+    </div>
+    <div class="card-body position-relative pb-3 border-top">
+      <div class="text-truncate">
+        <h3 class="h6 mb-2 fs-base">
+          <a class="nav-link stretched-link" href="<%= brand_url(brand) %>"><%= brand.name %></a>
+        </h3>
+        <p class="mb-2 fs-sm d-flex align-items-center">
+          <%= image_tag 'russia.svg', class: "me-2", width: "20"  %>
+          <%= brand.region.name_with_type  %>
+        </p>
+      </div>
+    </div>
+    <div class="card-footer d-flex align-items-center px-3 pt-3">
+      <div class="d-inline-block fs-sm d-flex align-items-center">
+        <i class="fi-bed ms-1 fs-lg text-muted"></i>
+        <span class="mx-3">1</span>
+      </div>
+      <div class="d-inline-block fs-sm d-flex align-items-center">
+        <i class="fi-bed ms-1 fs-lg text-muted"></i>
+        <span class="mx-3">1</span>
+      </div>
+      <div class="d-inline-block fs-sm d-flex align-items-center">
+        <i class="fi-bed ms-1 fs-lg text-muted"></i>
+        <span class="mx-3">1</span>
+      </div>
+    </div>
+    <% if current_page?(dashboard_brand_path) %>
+      <div class="card-footer d-flex align-items-center px-3 pt-3 justify-content-between">
+        <%= link_to  edit_brand_path(brand), class: "btn btn-outline-secondary btn-icon" do %>
+          <i class="uil uil-edit"></i>
+        <% end %>
+        <%= button_to  brand_path(brand), method: :delete, class: "btn btn-outline-danger btn-icon" do %>
+          <i class="uil uil-trash-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

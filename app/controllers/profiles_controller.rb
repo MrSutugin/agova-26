@@ -1,18 +1,32 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[edit update]
+  before_action :authenticate
+  before_action :set_profile, only: %i[dashboard update]
+
+  def dashboard
+    @gigs = current_account.gigs.order("id DESC").all
+  end
+
+  def brand
+    @brands = current_account.brands.order("id DESC").all
+  end
+
+  def area
+    @areas = current_account.areas.order("id DESC").all
+  end
 
   def update
     if @profile.update(profile_params)
-      redirect_to @profile, notice: "Profile was successfully updated."
+      flash.now[:notice] = "Профиль успешно обновлен"
     else
-      render :edit, status: :unprocessable_entity
+      flash.now[:alert] = "Не удалось обновить профиль"
     end
+    redirect_to dashboard_path
   end
 
   private
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = current_profile
   end
 
   def profile_params
